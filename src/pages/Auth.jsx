@@ -11,7 +11,7 @@ export default function Auth() {
 
     const navigate = useNavigate();
 
-    const { signUp, login, user, logout } = useContext(AuthContext);
+    const { signUp, login } = useContext(AuthContext);
     const { register, handleSubmit ,formState: {errors}} = useForm();
 
     function onSubmit(data){
@@ -27,14 +27,13 @@ export default function Auth() {
         } else {
             setError(result.error);
         }
-        console.log(result);
+       
     }
     return (
         <div className="page">
             <div className="cointainer">
                 <div className="auth-container">
-                    {user && <p>user logged in: {user.email}</p> }
-                    <button onClick = {() => {logout()}}>Logout</button>
+                
                     <h1 className="page-title">{mode === "signup" ? "Sign Up" : "Log In"}</h1>
                     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
                         {error && <div className="error-message">{error}</div>}
