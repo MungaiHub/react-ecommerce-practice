@@ -6,12 +6,14 @@ import ProductDetails from "./pages/productDetails.jsx";
 import './App.css'
 import Navbar from "./components/Navbar.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
+import CartProvider from "./components/cartContext.jsx";
 
 function App() {
  
 
   return (
     <AuthProvider>
+      <CartProvider>
     <div className="app">
       <Navbar />
     <Routes>
@@ -21,6 +23,7 @@ function App() {
       <Route path="/products/:id" element={<ProductDetails />} />
     </Routes>   
     </div>
+    </CartProvider>
     </AuthProvider>
   )
 }
